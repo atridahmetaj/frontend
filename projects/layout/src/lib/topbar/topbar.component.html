@@ -1,0 +1,10 @@
+<div class="layout-topbar">
+    <a href="#" class="layout-menubutton" [ngClass]="{'layout-menubutton-active': menuActive}" (click)="menuButtonClick($event)">
+        <div class="layout-menubutton-icon"></div>
+    </a>
+    <div class="layout-topbar-grid">
+        <div class="layout-topbar-grid-column">
+            <ms-system-menu [(menuActive)]="menuActive" [(horizontal)]="horizontal" [(menuHoverActive)]="menuHoverActive" [(resetMenu)]="resetMenu" (onSidebarClick)="clickSidebar($event)"></ms-system-menu>
+        </div>
+    </div>
+</div>
