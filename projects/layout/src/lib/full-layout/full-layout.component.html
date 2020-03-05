@@ -1,0 +1,21 @@
+<div class="layout-container" (click)="onWrapperClick()" [ngClass]="{
+    'layout-menu-horizontal': horizontal,
+    'layout-menu-active': menuActive,
+    'layout-top-small': topbarSize === 'small',
+    'layout-top-medium': topbarSize === 'medium',
+    'layout-top-large': topbarSize === 'large'
+  }" [class]="topbarColor + ' ' + menuColor">
+    <div class="layout-top">
+        <ms-system-topbar (onMenuButtonClick)="onMenuButtonClick($event)" (onUserMenuClick)="onTopbarUserMenuClick($event)" (onUserMenuButtonClick)="onTopbarUserMenuButtonClick($event)" [(userMenuActive)]="topbarUserMenuActive" (onSidebarClick)="onSidebarClick($event)"
+            [(menuActive)]="menuActive" [(horizontal)]="horizontal" [(menuHoverActive)]="menuHoverActive" [(resetMenu)]="resetMenu"></ms-system-topbar>
+        <div class="layout-topbar-separator"></div>
+        <ms-system-breadcrumb> </ms-system-breadcrumb>
+    </div>
+    <div class="layout-content">
+        <p-confirmDialog header="Confirmation" icon="pi pi-exclamation-triangle"></p-confirmDialog>
+        <router-outlet></router-outlet>
+    </div>
+    <div class="layout-mask" *ngIf="menuActive" [@mask-anim]="'visible'"></div>
+    <ms-system-footer></ms-system-footer>
+    <div class="layout-config-mask" *ngIf="configDialogActive" [@mask-anim]="'visible'"></div>
+</div>
