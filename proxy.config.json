@@ -1,6 +1,6 @@
 {
     "/auth/*": {
-      "target": "http://192.168.1.151:8081",
+      "target": "http://116.203.32.241:5005",
       "secure": false,
       "logLevel": "debug",
       "changeOrigin": true,
@@ -9,7 +9,7 @@
       }
     },
     "/admin/*": {
-      "target": "http://192.168.1.151:8081",
+      "target": "http://116.203.32.241:5005",
       "secure": false,
       "logLevel": "debug",
       "changeOrigin": true,
