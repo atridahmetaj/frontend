@@ -18,21 +18,21 @@ import { ReduxActionModel } from '../../redux/model/redux-action.model';
 })
 export class AuthenticationEpics {
     constructor(private authenticationService: AuthenticationService, private router: Router,
-        private messageService: MessageService) { }
+                private messageService: MessageService) { }
 
     combineEpic = (action$: ActionsObservable<any>,
-        state$: StateObservable<void>): Observable<AnyAction> => merge(
+                   state$: StateObservable<void>): Observable<AnyAction> => merge(
             this.doLogin(action$, state$),
             this.doRefresh(action$, state$))
 
     doRefresh = (action$: ActionsObservable<any>, state$: StateObservable<void>): Observable<AnyAction> => {
-        return action$.pipe( 
+        return action$.pipe(
             ofType(AuthenticationActions.REFRESH),
             map((result: Action<string>) => {
                 let token = sessionStorage.getItem('token');
-                if(token){ 
-                  //TO-DO Decode the token :D
-                    token = token
+                if (token) {
+                    // TO-DO Decode the token :D
+                    token = token;
                 }
                 return {
                     type: AuthenticationActions.REFRESH_DONE,
@@ -41,7 +41,7 @@ export class AuthenticationEpics {
             })
         );
     }
-    
+
     doLogin(action$: ActionsObservable<any>, state$: StateObservable<void>): Observable<AnyAction> {
         return action$.pipe(
             ofType(AuthenticationActions.LOGIN),
@@ -53,7 +53,7 @@ export class AuthenticationEpics {
                             result.access_token
                         );
                         this.router.navigate(['/']);
-                        //TO-DO Decode the token :D
+                        // TO-DO Decode the token :D
                         return {
                             type: AuthenticationActions.LOGIN_SUCCESS,
                             payload: result.access_token

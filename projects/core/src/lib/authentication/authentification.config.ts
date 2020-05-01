@@ -4,5 +4,5 @@ export const AUTHENTICATION_CONFIGURATION = new InjectionToken<IAuthenticationCo
 
 export interface IAuthenticationConfig {
   url: string;
-  resetUrl?:string;
-} 
+  resetUrl?: string;
+}

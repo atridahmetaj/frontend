@@ -13,7 +13,8 @@ import { AuthenticationActions } from './../../redux/authentication.actions';
 export class LoginComponent implements OnInit {
   form: FormGroup;
 
-  constructor(private builder: FormBuilder, private router: Router) { }
+  constructor(private builder: FormBuilder, private router: Router,
+              private actions: AuthenticationActions) { }
 
   ngOnInit() {
     sessionStorage.removeItem('token');
@@ -25,6 +26,7 @@ export class LoginComponent implements OnInit {
 
   login(): void {
     this.router.navigate(['/ms/admin']);
+    this.actions.login(this.form.value);
   }
 
   resetPassword(): void {

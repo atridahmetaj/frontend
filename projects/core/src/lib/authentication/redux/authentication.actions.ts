@@ -1,13 +1,13 @@
-import { dispatch } from "@angular-redux/store";
-import { Injectable } from "@angular/core";
-import { Action } from "redux";
+import { dispatch } from '@angular-redux/store';
+import { Injectable } from '@angular/core';
+import { Action } from 'redux';
 
-import { Login } from "../models";
-import { ReduxActionModel } from "../../redux/model/redux-action.model";
-import { AUTHENTICATION_STORE } from "../authentication.constants";
+import { Login } from '../models';
+import { ReduxActionModel } from '../../redux/model/redux-action.model';
+import { AUTHENTICATION_STORE } from '../authentication.constants';
 
 @Injectable({
-  providedIn: "root"
+  providedIn: 'root'
 })
 export class AuthenticationActions {
   static LOGIN = `[${AUTHENTICATION_STORE}] LOGIN`;
@@ -18,7 +18,7 @@ export class AuthenticationActions {
   static REFRESH = `[${AUTHENTICATION_STORE}] REFRESH`;
   static REFRESH_DONE = `[${AUTHENTICATION_STORE}] REFRESH_DONE`;
 
-  
+
   @dispatch() login(loginForm: Login): ReduxActionModel<Login> {
     return {
       type: AuthenticationActions.LOGIN,
