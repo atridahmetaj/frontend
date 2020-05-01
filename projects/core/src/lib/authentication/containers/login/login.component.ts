@@ -25,8 +25,7 @@ export class LoginComponent implements OnInit {
   }
 
   login(): void {
-    this.router.navigate(['/ms/admin']);
-    this.actions.login(this.form.value);
+    this.actions.doLogin(this.form.value);
   }
 
   resetPassword(): void {

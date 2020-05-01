@@ -52,7 +52,7 @@ export class AuthenticationEpics {
                             'token',
                             result.access_token
                         );
-                        this.router.navigate(['/']);
+                        this.router.navigate(['/ms/admin']);
                         // TO-DO Decode the token :D
                         return {
                             type: AuthenticationActions.LOGIN_SUCCESS,

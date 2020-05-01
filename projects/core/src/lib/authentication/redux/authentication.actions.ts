@@ -19,7 +19,7 @@ export class AuthenticationActions {
   static REFRESH_DONE = `[${AUTHENTICATION_STORE}] REFRESH_DONE`;
 
 
-  @dispatch() login(loginForm: Login): ReduxActionModel<Login> {
+  @dispatch() doLogin(loginForm: Login): ReduxActionModel<Login> {
     return {
       type: AuthenticationActions.LOGIN,
       payload: loginForm
