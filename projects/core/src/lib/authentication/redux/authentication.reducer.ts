@@ -22,12 +22,12 @@ export class AuthenticationReducer {
         return {
           ...state,
           userToken: action.payload
-        }; 
+        };
         case AuthenticationActions.REFRESH_DONE:
         return {
           ...state,
           userToken: action.payload
-        }; 
+        };
       default:
         return state;
     }

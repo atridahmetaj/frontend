@@ -10,6 +10,7 @@ import { Login } from './../models/login';
 import { AuthenticationService } from '../services/authentication.service';
 import { AuthenticationActions } from './authentication.actions';
 import { ReduxActionModel } from '../../redux/model/redux-action.model';
+import { AUTHENTICATION_STORE } from '../authentication.constants';
 
 
 
@@ -17,6 +18,9 @@ import { ReduxActionModel } from '../../redux/model/redux-action.model';
     providedIn: 'root'
 })
 export class AuthenticationEpics {
+
+    stateName: string = AUTHENTICATION_STORE;
+
     constructor(private authenticationService: AuthenticationService, private router: Router,
                 private messageService: MessageService) { }
 
