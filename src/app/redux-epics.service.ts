@@ -1,15 +1,19 @@
-import { Injectable } from "@angular/core";
-import { merge } from "rxjs";
+import { Injectable } from '@angular/core';
+import { merge } from 'rxjs';
+import { AuthenticationEpicsService } from '@ms-system/core';
 
 @Injectable({
-  providedIn: "root"
+  providedIn: 'root'
 })
 export class ReduxEpicsService {
   constructor(
+    // private adminEpics: AdminEpicsService,
+    private authEpics: AuthenticationEpicsService
   ) {}
 
   combineEpic = (action$, state$) =>
     merge(
-      //TO-DO Create an redux epic service for each feature app module   :D.
-    );
+      // this.adminEpics.combineEpic(action$, state$),
+      this.authEpics.combineEpic(action$, state$)
+    )
 }

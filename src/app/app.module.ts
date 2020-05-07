@@ -24,9 +24,9 @@ import {
   ReduxAppModule,
   ReduxInitService,
   CoreModule,
-  AuthenticationReducerLoader,
   ExceptionModule,
-  HttpErrorInterceptor
+  HttpErrorInterceptor,
+  AUTH_REDUCER_LOADERS
 } from '@ms-system/core';
 
 
@@ -92,6 +92,7 @@ export class AppModule extends ReduxAppModule {
 
     const epicArr = this.epics.combineEpic;
     const rootEpic = combineEpics<AnyAction, any>(epicArr);
+    // tslint:disable-next-line: no-use-before-declare
     epicMiddleware.run(rootEpic);
   }
 
@@ -100,8 +101,8 @@ export class AppModule extends ReduxAppModule {
   }
 
   getReduxReducers(): any[] {
-    //TO-DO Add all loaders here 
     return [
+      ...AUTH_REDUCER_LOADERS,
       { router: routerReducer }
     ];
   }

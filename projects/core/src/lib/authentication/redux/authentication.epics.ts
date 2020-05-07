@@ -50,6 +50,7 @@ export class AuthenticationEpics {
         return action$.pipe(
             ofType(AuthenticationActions.LOGIN),
             mergeMap((value: ReduxActionModel<Login>) => {
+                console.log(value.payload);
                 return this.authenticationService.token(value.payload).pipe(
                     map((result: any) => {
                         sessionStorage.setItem(

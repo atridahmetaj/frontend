@@ -3,6 +3,7 @@
     "version": "0.0.0",
     "scripts": {
         "ng": "ng",
+        "generate-swagger-dto": "./node_modules/.bin/ng-swagger-gen",
         "start": "ng serve --proxy-config proxy.config.json",
         "build": "ng build --prod",
         "test": "ng test",
@@ -57,6 +58,7 @@
         "karma-jasmine": "~2.0.1",
         "karma-jasmine-html-reporter": "^1.4.0",
         "ng-packagr": "^5.4.0",
+        "ng-swagger-gen": "^2.2.0",
         "protractor": "~5.4.0",
         "ts-node": "~7.0.0",
         "tsickle": "^0.37.0",

@@ -11,13 +11,20 @@ import { select } from '@angular-redux/store';
 @Injectable()
 export class AuthenticationService {
     @select([AUTHENTICATION_STORE, 'user']) auth$: Observable<AuthenticationStore>;
+    currentUser: any;
 
     constructor(private http: HttpClient, @Inject(AUTHENTICATION_CONFIGURATION) private config: IAuthenticationConfig) {
+        this.auth$.subscribe((user: any) => {
+            if (user) {
+                this.currentUser = user;
+            }
+        });
 
     }
 
     token(login: Login) {
-        return this.http.post<Login>(this.config.url, login);
+        const url = this.config.url;
+        return this.http.post<Login>(`${url}/login`, login);
     }
 
 }
